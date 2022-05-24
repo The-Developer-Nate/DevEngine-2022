@@ -15,8 +15,8 @@ namespace DevEngine.Drawing
 
         public Drawing(Game game)
         {
-            gl = game.CreateGL(); 
-
+            gl = game.CreateGL();
+            gl.DrawArrays(GLEnum.Triangles, 0, 3);
         }
     }
 }
