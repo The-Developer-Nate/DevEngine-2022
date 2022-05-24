@@ -18,25 +18,33 @@ namespace DevEngine.Engine
 
         public void Close() => window?.Close();
 
+        public Action OnStart;
+        public Action<double> Update;
+        public Action<double> Render;
+        public Action Closing;
+
         /// <summary>
         /// Creates a new game instance.
         /// </summary>
-        public Game(string title)
+        public Game(string title, int width, int height, int x = 0, int y = 0)
         {
             window = Window.Create(new WindowOptions()
             {
                 Title = title,
                 UpdatesPerSecond = 500,
-                Size = new Silk.NET.Maths.Vector2D<int>(720, 720),
-                Position = new Silk.NET.Maths.Vector2D<int>(0,0)
+                Size = new Silk.NET.Maths.Vector2D<int>(width, height),
+                Position = new Silk.NET.Maths.Vector2D<int>(x,y)
             });
-            window.Update += dt => Update((float)dt);
+            window.Update += dt => Update((float) dt);
+            window.Render += _ => Render((float) _);
             window.Load += OnStart;
-            window.Run();
+            window.Closing += Closing;
         }
 
-        protected void OnStart() { }
-        protected void Update(float dt) { }
+        public void Start()
+        {
+            window.Run();
+        }
 
     }
 }
