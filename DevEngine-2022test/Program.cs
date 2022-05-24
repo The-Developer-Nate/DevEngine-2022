@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevEngine_2022.Engine;
+using System;
 
 namespace DevEngine_2022test
 {
@@ -6,7 +7,7 @@ namespace DevEngine_2022test
     {
         static void Main(string[] args)
         {
-            
+            Game game = new Game("Test");
         }
     }
 }
