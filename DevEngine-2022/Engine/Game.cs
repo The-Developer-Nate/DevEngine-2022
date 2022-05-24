@@ -7,7 +7,7 @@ using Silk.NET;
 using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
 
-namespace DevEngine_2022.Engine
+namespace DevEngine.Engine
 {
     public class Game
     {
@@ -26,7 +26,9 @@ namespace DevEngine_2022.Engine
             window = Window.Create(new WindowOptions()
             {
                 Title = title,
-                UpdatesPerSecond = 500
+                UpdatesPerSecond = 500,
+                Size = new Silk.NET.Maths.Vector2D<int>(720, 720),
+                Position = new Silk.NET.Maths.Vector2D<int>(0,0)
             });
             window.Update += dt => Update((float)dt);
             window.Load += OnStart;
