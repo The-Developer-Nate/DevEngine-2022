@@ -12,7 +12,7 @@ namespace DevEngine.Engine
     public class Game
     {
 
-        IWindow window;
+        public IWindow window;
 
         internal GL CreateGL() => window?.CreateOpenGL();
 
