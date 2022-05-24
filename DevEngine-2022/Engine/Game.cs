@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Silk.NET;
+using Silk.NET.Core.Contexts;
 using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
 
@@ -33,7 +34,8 @@ namespace DevEngine.Engine
                 Title = title,
                 UpdatesPerSecond = 500,
                 Size = new Silk.NET.Maths.Vector2D<int>(width, height),
-                Position = new Silk.NET.Maths.Vector2D<int>(x,y)
+                Position = new Silk.NET.Maths.Vector2D<int>(x, y),
+                IsContextControlDisabled = true,
             });
             window.Update += dt => Update((float) dt);
             window.Render += _ => Render((float) _);
