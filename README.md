@@ -2,4 +2,6 @@
 
 a new game engine for C#
 
-unusable rn
+# Docs
+
+you cant use it right now
